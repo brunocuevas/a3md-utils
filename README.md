@@ -1,5 +1,8 @@
 # A3MD - utils
 
+**Important**: I am building this repository from pieces of a previous repository. This means
+*I still have to run some tests to check I didn't mess up*.
+
 ## Summary
 
 A3MDutils provides some useful classes and scripts that I developped
@@ -9,13 +12,23 @@ for my main project, A3MD. You can employ it to:
 - rotate coordinates of MOL2 files
 - extract forces from QM files
 
+## Install
+
+I am only providing manual build
+
+    python3 -m build
+
+This generates some files in dist/ that you can install with pip.
+
+## Usage
+
 To interact with these scripts, you can just call the a3mdutils script.
 
     >>> a3mdutils 
     Usage: a3mdutils [OPTIONS] COMMAND [ARGS]...
 
-    A2MDrun Optimization/prediction/evaluation of a2md models of electron
-    density.
+    a set of scripts to work with molecular representations and their electron densities
+
 
     Options:
     --help  Show this message and exit.
@@ -37,6 +50,8 @@ To interact with these scripts, you can just call the a3mdutils script.
     random-rotation      Rotates a mol2 file
     relabel-mol2         Applies a relabelling of the atoms of a Mol2.
     update-mol2          Generates new mol2 files by including charge...
+
+## Support
 
 Right now, I cannot support this repository but from time to time. But don't
 hesistate to contact me if you find something that does not work at 
