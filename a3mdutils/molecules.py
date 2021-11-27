@@ -1,4 +1,4 @@
-from a3mdutils import A2MDlib, get_atomic_number, get_symbol
+from a3mdutils import A3MDlib, get_atomic_number, get_symbol
 from a3mdutils import PDB_PROTEIN_TOPOLOGY, PDB_PROTEIN_TYPES, PDB_PROTEIN_CHARGES, PDB_PROTEIN_TYPE_CHARGES
 import numpy as np
 
@@ -49,12 +49,12 @@ def get_segment_charge(segments_ids: list):
     return segment_charges
 
 
-class QmSetUp(A2MDlib):
+class QmSetUp(A3MDlib):
     def __init__(
             self, basis, method, calculation_type='single', nprocs=1, disk=None, memory=None,
             additional_commands=None, verbose=None
     ):
-        A2MDlib.__init__(self, name='G09 input writer', verbose=verbose)
+        A3MDlib.__init__(self, name='G09 input writer', verbose=verbose)
         self.basis = basis
         self.method = method
         self.nprocs = nprocs
@@ -168,7 +168,7 @@ class QmSetUp(A2MDlib):
         return orca_input_contents
 
 
-class MolRepresentation(A2MDlib):
+class MolRepresentation(A3MDlib):
     def __init__(
             self, name, units, number_atoms, number_bonds, atomic_numbers, coordinates,
             charges, atom_types, atom_names, bonds, bond_types
@@ -186,7 +186,7 @@ class MolRepresentation(A2MDlib):
         :param atom_types:
         :param bond_types:
         """
-        A2MDlib.__init__(self, name=name, verbose=False)
+        A3MDlib.__init__(self, name=name, verbose=False)
         self.coordinates = coordinates
         self.units = units
         self.natoms = number_atoms

@@ -1,4 +1,3 @@
-# from a2md.models import a2md_from_mol
 from a3mdutils.molecules import QmSetUp
 from a3mdutils.qm import WaveFunction, WaveFunctionHDF5
 from a3mdutils.parsers import forces
@@ -582,6 +581,11 @@ def many_compile_mol2(name, out):
 
     """
     __many_compile_mol2(name, out)
+
+
+@click.command()
+def say_hello():
+    print("just wanted to say hello!")
 
 
 cli.add_command(prepare_qm)

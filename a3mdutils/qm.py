@@ -6,7 +6,7 @@ from a3mdutils import WFN_SYMMETRY_INDEX
 from a3mdutils.wfx import from_wfx
 
 
-class A2MDlibQM:
+class A3MDlibQM:
     def __init__(self, name, verbose):
         self.__name = name
         if verbose in [True, False]:
@@ -40,13 +40,13 @@ def parse_fortran_scientific(fortran_number):
     return float(c_number)
 
 
-class WaveFunction(A2MDlibQM):
+class WaveFunction(A3MDlibQM):
 
     def __init__(
         self, coeff, dm, occ, exponents, syms, centers, coords, types, charges, primitives,
         molecular_orbitals, nuclei, verbose=False, prefetch_dm=False
     ):
-        A2MDlibQM.__init__(self, verbose=verbose, name='wavefunction handler')
+        A3MDlibQM.__init__(self, verbose=verbose, name='wavefunction handler')
         self.coefficients = coeff
         self.occupancies = occ
         self.exponents = exponents
@@ -441,7 +441,7 @@ class ElectronDensity(Volume):
         return x, sampled_density
 
 
-class GaussianLog(A2MDlibQM):
+class GaussianLog(A3MDlibQM):
 
     def __init__(self, file, method, charges, ep=False, verbose=True):
         """
@@ -454,7 +454,7 @@ class GaussianLog(A2MDlibQM):
         from a3mdutils.parsers import energy_decomposition, dipole
         from a3mdutils.parsers import hf_energy, mp2_energy, dft_energy
         from a3mdutils.parsers import electrostatic_potential
-        A2MDlibQM.__init__(self, verbose=verbose, name='gaussianLog')
+        A3MDlibQM.__init__(self, verbose=verbose, name='gaussianLog')
         self.fname = file
         tokkens = [
             std_coordinates, dipole, energy_decomposition
@@ -508,7 +508,7 @@ class GaussianLog(A2MDlibQM):
             return fun(f.readlines())
 
 
-class CubeFile(A2MDlibQM):
+class CubeFile(A3MDlibQM):
     def __init__(self, file, verbose=False):
         """
 
@@ -518,7 +518,7 @@ class CubeFile(A2MDlibQM):
         :param file:
         :param verbose:
         """
-        A2MDlibQM.__init__(self, name='CubeFile', verbose=verbose)
+        A3MDlibQM.__init__(self, name='CubeFile', verbose=verbose)
         self.file = file
         self.cube_tensor = None
         self.origin = None
