@@ -278,8 +278,9 @@ def __merge_h5(name, out):
 @click.group()
 def cli():
     """
-    A2MDrun
-    Optimization/prediction/evaluation of a2md models of electron density.
+    a3md utils
+    
+    a set of scripts to work with molecular representations and their electron densities
 
     """
 
